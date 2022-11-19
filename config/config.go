@@ -4,7 +4,8 @@
 package config
 
 type Config struct {
-	ApiKey string `config:"apikey"`
+	Ago    AgoType `config:"ago"`
+	ApiKey string  `config:"apikey"`
 	// this string will also appear in the Bearer token generated for POD access
 	CustomerID string `config:"customerid"`
 	// path to a sqlite db for tracking seen guids to ensure no duplicate events
@@ -34,6 +35,11 @@ type Config struct {
 	*/
 	// 2020 POD docs define 0400 -> 0700 as 'correct' timezones, don't recall if utc was ever used?
 	Timezone string `config:"timezone"`
+}
+type AgoType struct {
+	// one of m|h
+	Units string `config:"units"`
+	Value int    `config:"value"`
 }
 type CheckpointType struct {
 	// a writeable path

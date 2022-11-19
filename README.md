@@ -1,18 +1,26 @@
-# {Beat}
+# Podbeat
 
-Welcome to {Beat}.
+Welcome to Podbeat.
+
+Podbeat consumes Proofpoint On Demand events from the logstream.proofpoint.com endpoint. 
+
+This is a best effort project after painful python refactors and  general jankiness.
+
+I recommend sending these to logstash and setting the ```guid``` as ```_id```, becaue this beat has
+no deduplication considerations and uses overlapping starting offsets on polling to ensure
+all events are captured. 
 
 Ensure that this folder is at the following location:
 `${GOPATH}/src/github.com/dukeofdisaster/podbeat`
 
-## Getting Started with {Beat}
+## Getting Started with Podbeat
 
 ### Requirements
 
 * [Golang](https://golang.org/dl/) 1.7
 
 ### Init Project
-To get running with {Beat} and also install the
+To get running with Podbeat and also install the
 dependencies, run the following command:
 
 ```
@@ -21,7 +29,7 @@ make setup
 
 It will create a clean git history for each major step. Note that you can always rewrite the history if you wish before pushing your changes.
 
-To push {Beat} in the git repository, run the following commands:
+To push Podbeat in the git repository, run the following commands:
 
 ```
 git remote set-url origin https://github.com/dukeofdisaster/podbeat
@@ -32,7 +40,7 @@ For further development, check out the [beat developer guide](https://www.elasti
 
 ### Build
 
-To build the binary for {Beat} run the command below. This will generate a binary
+To build the binary for Podbeat run the command below. This will generate a binary
 in the same directory with the name podbeat.
 
 ```
@@ -42,7 +50,7 @@ make
 
 ### Run
 
-To run {Beat} with debugging output enabled, run:
+To run Podbeat with debugging output enabled, run:
 
 ```
 ./podbeat -c podbeat.yml -e -d "*"
@@ -51,7 +59,7 @@ To run {Beat} with debugging output enabled, run:
 
 ### Test
 
-To test {Beat}, run the following command:
+To test Podbeat, run the following command:
 
 ```
 make testsuite
@@ -79,7 +87,7 @@ make update
 
 ### Cleanup
 
-To clean  {Beat} source code, run the following command:
+To clean  Podbeat source code, run the following command:
 
 ```
 make fmt
@@ -94,7 +102,7 @@ make clean
 
 ### Clone
 
-To clone {Beat} from the git repository, run the following commands:
+To clone Podbeat from the git repository, run the following commands:
 
 ```
 mkdir -p ${GOPATH}/src/github.com/dukeofdisaster/podbeat
